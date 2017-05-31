@@ -7,7 +7,8 @@ int main(void)
 {
     int T, test_case;
     int arr[101] = { 0, };
-    int a, b;
+    int a[20] = {0, };
+    int b[20] = {0, };
     
     setbuf(stdout, NULL);
     
@@ -19,11 +20,15 @@ int main(void)
         scanf("%d",&n);
         scanf("%d",&l);
         
-        for (int i = 0; i<l; i++) {
-            scanf("%d %d", &a, &b);
-            arr[a] = !arr[b];
-            if (arr[a] == arr[b]) {
+        for (int i = 1; i<=l; i++) {
+            scanf("%d %d", &a[i], &b[i]);
+            arr[b[i]] = !(arr[a[i]]);
+        }
+        
+        for (int i = 1; i <= l; i++) {
+            if (arr[b[i]] == arr[a[i]]) {
                 Answer = 0;
+                break;
             }
         }
         
